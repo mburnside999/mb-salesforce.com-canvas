@@ -32,7 +32,7 @@ app.post('/', function(req, res) {
       instanceUrl = signedRequest.client.instanceUrl,
 
       //query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact WHERE Id = '" + context.environment.record.Id + "'",
-      query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact WHERE Id = '" + context.environment.record.Id + "' LIMIT 1",
+      query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact  LIMIT 1",
 
       contactRequest = {
           url: instanceUrl + '/services/data/v50.0/query?q=' + query,
