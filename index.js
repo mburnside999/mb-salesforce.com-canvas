@@ -1,3 +1,4 @@
+const { SlowBuffer } = require('buffer');
 var express  = require('express'),
   bodyParser = require('body-parser'),
   path       = require('path'),
@@ -29,6 +30,10 @@ app.post('/', function (req, res) {
   let buff = new Buffer(context, 'base64');
   let text = buff.toString('ascii');
   console.log(text);
+  let obj = JSON.parse(text);
+  console.log('oauthtoken',obj.client.oauthToken);
+  console.log('username',obj.context.user.username);
+
   // Sign hash with secret
   var hash = CryptoJS.HmacSHA256(context, shared); 
   // encrypt signed hash to base64
