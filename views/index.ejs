@@ -84,6 +84,21 @@ Sfdc.canvas.client.ajax(url,
         }
     });
 
+    Sfdc.canvas.client.subscribe(c,
+    {
+      name: "publisher.getPayload", onData: function (event)
+      {
+        var post = {};
+    
+        post.feedItemType = "LinkPost";
+        post.url = 'https://www.salesforce.com';
+        post.urlName = 'salesforce';
+    
+        Sfdc.canvas.client.publish(sr.client,
+          { name: "publisher.setPayload", payload: post });
+      }
+    });
+
 
     Sfdc.canvas.client.publish(c, 
     {name : 'publisher.setValidForSubmit', 
