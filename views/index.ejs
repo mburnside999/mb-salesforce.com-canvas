@@ -85,10 +85,9 @@ Sfdc.canvas.client.ajax(url,
     });
 
 
-            Sfdc.canvas.publisher.publish({
-                name: "publisher.setValidForSubmit",
-                payload: "true"
-            });
+    sfdc.canvas.client.publish(c, 
+    {name : 'publisher.setValidForSubmit', 
+        payload : true});
        
    
 
