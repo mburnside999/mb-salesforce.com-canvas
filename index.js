@@ -3,8 +3,14 @@ var express  = require('express'),
   bodyParser = require('body-parser'),
   path       = require('path'),
   CryptoJS   = require("crypto-js");
+  const session = require('express-session');
 
-app        = express(),
+
+app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
+
+var sess; // global session, NOT recommended
+
+app= express(),
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
@@ -30,6 +36,8 @@ app.post('/', function (req, res) {
   let buff = new Buffer(context, 'base64');
   let text = buff.toString('ascii');
   console.log(text);
+  sess.context = text;
+
   let obj = JSON.parse(text);
   console.log('oauthtoken',obj.client.oauthToken);
   console.log('username',obj.context.user.userName);
