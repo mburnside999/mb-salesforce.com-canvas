@@ -88,7 +88,7 @@ Sfdc.canvas.client.ajax(url,
     {
       name: "publisher.getPayload", onData: function (event)
       {
-        console.log(event);
+        console.log('event',JSON.stringify(event));
         var post = {};
     
         post.feedItemType = "LinkPost";
