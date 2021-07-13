@@ -62,9 +62,9 @@
     <script>
         var url = "<%= context.links.chatterFeedsUrl%>"+"/news/"+"<%= context.user.userId%>"+"/feed-items";
         var body = {body : {messageSegments : [{type: "Text", text: "Some Chatter Post"}]}};
- 
+ var c = '<%= client %>';
         Sfdc.canvas.client.ajax(url,
-    {client : "<%=client%>",
+    {client : c,
         method: 'POST',
         contentType: "application/json",
         data: JSON.stringify(body),
