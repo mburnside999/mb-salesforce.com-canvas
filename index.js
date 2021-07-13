@@ -5,7 +5,7 @@ var express  = require('express'),
   CryptoJS   = require("crypto-js");
   const session = require('express-session');
 
-var sess; // global session, NOT recommended
+var sess={}; // global session, NOT recommended
 
 app= express(),
 app.use(express.static(path.join(__dirname, 'public')));
