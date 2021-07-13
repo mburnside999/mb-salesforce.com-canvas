@@ -9,8 +9,7 @@ var express  = require('express'),
 
 
 app= express(),
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'bower_components')));
+app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.json()); // create application/json parser
 app.use(bodyParser.urlencoded({ entended: true })); //create application/x-www-urlencoded parser
