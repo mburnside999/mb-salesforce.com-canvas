@@ -60,7 +60,7 @@
 <div class="canvas-app">
     <img src="nodejs.png"/>
     <script>
-        var c = JSON.parse('<%= context %>');
+        var c = <%= context %>;
         alert(c.user.firstName);
         
     </script>
