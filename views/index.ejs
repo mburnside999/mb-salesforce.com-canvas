@@ -65,11 +65,14 @@
         var url = '<%- context.links.chatterFeedsUrl%>'+'/news/'+'<%-context.user.userId%>'+'/feed-items';
         var body = {body : {messageSegments : [{type: "Text", text: "Some Chatter Post"}]}};
 var c='<%- client %>';
-var d='<== client %>';
+var d='<%- JSON.stringify(client) %>';
+
+var e='<== client %>';
 console.log('client========','<%- client %>');
 console.log('c============',c);
-
 console.log('d============',d);
+
+console.log('e============',e);
 
      //   c.ajax(url,
       //  {client : c,
