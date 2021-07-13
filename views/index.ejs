@@ -69,7 +69,7 @@ var c=JSON.parse(strClient);
 console.log(strClient);
 console.log(JSON.stringify(c));
 
-var url = '<%=context.links.chatterFeedsUrl%>'+'/news/'+'<%=sr.context.user.userId%>'+'/feed-items';
+var url = '<%=context.links.chatterFeedsUrl%>'+'/news/'+'<%=context.user.userId%>'+'/feed-items';
 var body = {body : {messageSegments : [{type: "Text", text: "Some Chatter Post"}]}};
  
 Sfdc.canvas.client.ajax(url,
