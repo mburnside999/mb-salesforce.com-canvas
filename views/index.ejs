@@ -60,7 +60,8 @@
 <div class="canvas-app">
     <img src="nodejs.png"/>
     <script>
-        alert(context.user.firstName);
+        alert('<%= context.user.firstName %>')
+        ;
     </script>
     <p>Hello, <%= context.user.firstName %>. This is a web app written in Node.js embedded in your Salesforce page (It could also be written in any other language).</p>
     <p>It is aware of its environment. For example, here are a few things it knows:</p>
