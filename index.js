@@ -5,14 +5,12 @@ var express  = require('express'),
   CryptoJS   = require("crypto-js");
   const session = require('express-session');
 
-
-app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
-
 var sess; // global session, NOT recommended
 
 app= express(),
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
+app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 
 app.use(bodyParser.json()); // create application/json parser
 app.use(bodyParser.urlencoded({ entended: true })); //create application/x-www-urlencoded parser
