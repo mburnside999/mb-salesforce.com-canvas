@@ -145,7 +145,9 @@
     var ctxlink = Sfdc.canvas.byId("ctxlink");
     var client = Sfdc.canvas.oauth.client();
     ctxlink.onclick=function() {
-    Sfdc.canvas.client.ctx(callback, client)};
+        c=$("#context").val();
+        console.log("c = "+c);
+        Sfdc.canvas.client.ctx(callback, client)};
     
     </script>
 </html>
