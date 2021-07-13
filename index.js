@@ -32,7 +32,7 @@ app.post('/', function (req, res) {
   console.log(text);
   let obj = JSON.parse(text);
   console.log('oauthtoken',obj.client.oauthToken);
-  console.log('username',obj.context.user.username);
+  console.log('username',obj.context.user.userName);
 
   // Sign hash with secret
   var hash = CryptoJS.HmacSHA256(context, shared); 
