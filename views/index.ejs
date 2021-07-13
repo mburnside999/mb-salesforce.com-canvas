@@ -89,7 +89,14 @@ Sfdc.canvas.client.ajax(url,
       name: "publisher.getPayload", onData: function (event)
       {
         console.log('event',JSON.stringify(event));
-        
+        var post = {};
+    
+        //post.feedItemType = "LinkPost";
+        //post.url = 'https://www.salesforce.com';
+        //post.urlName = 'salesforce';
+    
+        Sfdc.canvas.client.publish(c,
+          { name: "publisher.setPayload", payload: post });
       }
     });
 
