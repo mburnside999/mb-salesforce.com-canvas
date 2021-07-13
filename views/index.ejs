@@ -66,6 +66,7 @@
         var body = {body : {messageSegments : [{type: "Text", text: "Some Chatter Post"}]}};
 var c='<%- client %>';
 var d='<%- JSON.stringify(client) %>';
+var f=JSON.parse(d);
 
 var e='<%= client %>';
 console.log('client========','<%- client %>');
@@ -73,6 +74,7 @@ console.log('c============',c.targetOrigin);
 console.log('d============',d.targetOrigin);
 
 console.log('e============',e.targetOrigin);
+console.log('f============',f.targetOrigin);
 
      //   c.ajax(url,
       //  {client : c,
