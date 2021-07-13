@@ -60,11 +60,11 @@
 <div class="canvas-app">
     <img src="nodejs.png"/>
     <script>
-        var url = <%= context.links.chatterFeedsUrl%>+"/news/"+<%= context.user.userId%>+"/feed-items";
+        var url = "<%= context.links.chatterFeedsUrl%>"+"/news/"+"<%= context.user.userId%>"+"/feed-items";
         var body = {body : {messageSegments : [{type: "Text", text: "Some Chatter Post"}]}};
  
         Sfdc.canvas.client.ajax(url,
-    {client : <%=client%>,
+    {client : "<%=client%>",
         method: 'POST',
         contentType: "application/json",
         data: JSON.stringify(body),
