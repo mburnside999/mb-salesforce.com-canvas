@@ -61,7 +61,7 @@
     <img src="nodejs.png"/>
     <script>
         console.log('<%- context %>');
-        var test = '<%- JSON.stringify(context) %>'; // test is now a valid js object
+        var test = '<%- JSON.parse(context) %>'; // test is now a valid js object
     alert (test);
     </script>
     <p>Hello, <%= context.user.firstName %>. This is a web app written in Node.js embedded in your Salesforce page (It could also be written in any other language).</p>
