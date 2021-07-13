@@ -5,7 +5,7 @@ var express  = require('express'),
   CryptoJS   = require("crypto-js");
   const session = require('express-session');
 
-var sess={}; // global session, NOT recommended
+var sess; // global session, NOT recommended
 
 app= express(),
 app.use(express.static(path.join(__dirname, 'public')));
@@ -23,6 +23,7 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function (req, res) {
+  sess = req.session;
   // Desk secret key	
   var shared = consumerSecret;
   // Grab signed request
