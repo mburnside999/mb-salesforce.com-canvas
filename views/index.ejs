@@ -60,9 +60,23 @@
 <div class="canvas-app">
     <img src="nodejs.png"/>
     <script>
-        console.log('<%- context %>');
-        var test = '<%- JSON.parse(context) %>'; // test is now a valid js object
-    alert (test);
+        console.log('<%- context %>','=========');
+        var test = '<%- JSON.stringify(context) %>'; // test is now a valid js object
+        var url = '<%-context.links.chatterFeedsUrl%>'+'/news/'+'<%-context.user.userId%>'+'/feed-items';
+        var body = {body : {messageSegments : [{type: "Text", text: "Some Chatter Post"}]}};
+var c='<%- client %>';
+
+        c.ajax(url,
+        {client : c,
+            method: 'POST',
+            contentType: "application/json",
+            data: JSON.stringify(body),
+            success : function(data) {
+            if (201 === data.status) {
+                 alert("Success");
+                 }
+            }
+        });
     </script>
     <p>Hello, <%= context.user.firstName %>. This is a web app written in Node.js embedded in your Salesforce page (It could also be written in any other language).</p>
     <p>It is aware of its environment. For example, here are a few things it knows:</p>
