@@ -91,9 +91,9 @@ Sfdc.canvas.client.ajax(url,
         console.log('event',JSON.stringify(event));
         var post = {};
     
-        post.feedItemType = "LinkPost";
-        post.url = 'https://www.salesforce.com';
-        post.urlName = 'salesforce';
+        post.feedItemType = "TextPost";
+        post.body = 'https://www.salesforce.com';
+        
     
         Sfdc.canvas.client.publish(c,
           { name: "publisher.setPayload", payload: post });
