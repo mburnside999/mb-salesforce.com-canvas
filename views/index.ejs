@@ -2,7 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link href="styles.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Lato;
+        }
+        
+        body {
+            padding: 0px;
+            background: #f6f3f7;
+        }
+        
+        h1 {
+            display: block;
+            width: 100%;
+            background: #64e0ef;
+            height: 55px;
+            padding-left: 10px;
+            color: #fff;
+            font-size: 20px;
+            line-height: 55px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            min-width: 500px;
+            border-collapse: collapse;
+            font-weight: bold;
+            color: #6b6b6b;
+        }
+        
+        thead {
+            background-color: rgba(29, 150, 178, 1);
+            border: 1px solid rgba(29, 150, 178, 1);
+            font-weight: normal;
+            text-align: center;
+            color: white;
+        }
+        
+        tr {
+            height: 50px;
+            text-align: center;
+        }
+        
+        td {
+            box-sizing: border-box;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <div class="canvas-app">
@@ -16,5 +67,51 @@
     <p>It can also access more data in Salesforce using the REST APIs. With context and APIs, Canvas makes it easy to integrate applications written in any language inside your Salesforce pages.</p>
     <p>For example, the QR Code below is generated in Node.js. Scan it to create a contact on your mobile phone:</p>
     <%- imgTag %>
+</div>
+
+<div>
+    <h1>Product Manangement Node Js Heroku Integration </h1>
+    <a id="ctxlink" href="#">Get Context</a>
+   
+    <table>
+        <thead>
+            <tr>
+                <th>Item Name </th>
+                <th>Master Price </th>
+                <th>Discount </th>
+                <th>Product Description </th>
+                <th>Discount Approval </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              
+                <td>Product ACT 100</td>
+                <td>$279.00</td>
+                <td>$29.00</td>
+                <td>Affordable and easy to use, Act!</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                
+                <td>Product ACT 200</td>
+                <td>$279.00</td>
+                <td>$29.00</td>
+                <td>Affordable and easy to use, Act!</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                
+                <td>Product ACT 300</td>
+                <td>$279.00</td>
+                <td>$10.00</td>
+                <td>Affordable and easy to use, Act!</td>
+                <td>No</td>
+            </tr>
+
+
+
+        </tbody>
+    </table>
 </div>
 </body>
