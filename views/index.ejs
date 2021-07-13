@@ -62,7 +62,7 @@
     <script>
         console.log('<%- context %>','=========');
         var test = '<%- JSON.stringify(context) %>'; // test is now a valid js object
-        var url = '<%-herokicontext.links.chatterFeedsUrl%>'+'/news/'+'<%-context.user.userId%>'+'/feed-items';
+        var url = '<%- context.links.chatterFeedsUrl%>'+'/news/'+'<%-context.user.userId%>'+'/feed-items';
         var body = {body : {messageSegments : [{type: "Text", text: "Some Chatter Post"}]}};
 var c='<%- client %>';
 console.log('c',c);
