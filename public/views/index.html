@@ -9,20 +9,7 @@
    
     <script type="text/javascript" src="https://ctademo5.my.salesforce.com/canvas/sdk/js/51.0/canvas-all.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script>
-        function callback(msg) {
-        if (msg.status !== 200) {
-        alert("Error: " + msg.status);
-        return;
-    }
-    alert("Payload: ", msg.payload);
-    }
-    var ctxlink = Sfdc.canvas.byId("ctxlink");
-    var client = Sfdc.canvas.oauth.client();
-    ctxlink.onclick=function() {
-    Sfdc.canvas.client.ctx(callback, client)};
-    
-    </script>
+
    
     <style>
         * {
@@ -146,4 +133,19 @@
         </table>
     </div>
 
+
+    <script>
+        function callback(msg) {
+        if (msg.status !== 200) {
+        alert("Error: " + msg.status);
+        return;
+    }
+    alert("Payload: ", msg.payload);
+    }
+    var ctxlink = Sfdc.canvas.byId("ctxlink");
+    var client = Sfdc.canvas.oauth.client();
+    ctxlink.onclick=function() {
+    Sfdc.canvas.client.ctx(callback, client)};
+    
+    </script>
 </html>
