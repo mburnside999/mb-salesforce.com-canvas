@@ -92,13 +92,12 @@ Sfdc.canvas.client.ajax(url,
         var post = {};
     
         post.feedItemType = "TextPost";
-        post.body = 'xxxxx';
-        
-        var body = {body : {messageSegments : [{type: "Text", text: "Another Chatter Post from the Canvas App"}]}};
-
+        post.body = {value:"xx",insertType:"cursor"};
+      
+        //post.urlName = 'salesforce';
     
         Sfdc.canvas.client.publish(c,
-          { name: "publisher.setPayload", payload: body });
+          { name: "publisher.setPayload", payload: post });
       }
     });
 
