@@ -27,6 +27,7 @@ app.post('/', function(req, res) {
   // You could save this information in the user session if needed
   var signedRequest = decode(req.body.signed_request, consumerSecret),
       context = signedRequest.context,
+      client=signedRequest.client,
       oauthToken = signedRequest.client.oauthToken,
       instanceUrl = signedRequest.client.instanceUrl,
 
@@ -40,6 +41,7 @@ app.post('/', function(req, res) {
           }
       };
 console.log('token',oauthToken);
+console.log('client',client);
 console.log(JSON.stringify(context));
   request(contactRequest, function(err, response, body) {
     var qr = qrcode.qrcode(4, 'L'),
@@ -48,7 +50,7 @@ console.log(JSON.stringify(context));
 qr.addData(text);
 qr.make()
       var imgTag = qr.createImgTag(4);
-      res.render('index', {context: context, imgTag: imgTag});
+      res.render('index', {client: client, signedRequest: signedRequest,context: context, imgTag: imgTag});
   });
 
 });
