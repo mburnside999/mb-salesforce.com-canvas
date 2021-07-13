@@ -23,7 +23,7 @@ var views = path.join(__dirname, 'public/views');
 //   res.sendFile(path.join(views, 'index.html'));
 // });
 
-app.post('/signedrequest', function(req, res) {
+app.post('/', function(req, res) {
 
   // You could save this information in the user session if needed
   var signedRequest = decode(req.body.signed_request, consumerSecret),
