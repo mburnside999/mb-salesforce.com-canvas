@@ -1,9 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
+
 <head>
     <meta charset="UTF-8">
+   
+    <script type="text/javascript" src="https://ctademo5.my.salesforce.com/canvas/sdk/js/51.0/canvas-all.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script>
+        function callback(msg) {
+        if (msg.status !== 200) {
+        alert("Error: " + msg.status);
+        return;
+    }
+    alert("Payload: ", msg.payload);
+    }
+    var ctxlink = Sfdc.canvas.byId("ctxlink");
+    var client = Sfdc.canvas.oauth.client();
+    ctxlink.onclick=function() {
+    Sfdc.canvas.client.ctx(callback, client)};
+    }
+    </script>
+   
     <style>
         * {
             margin: 0;
@@ -61,6 +81,8 @@
 <body>
     <div>
         <h1>Product Manangement Node Js Heroku Integration </h1>
+        <a id="ctxlink" href="#">Get Context</a>
+       
         <table>
             <thead>
                 <tr>
