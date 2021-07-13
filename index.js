@@ -35,12 +35,13 @@ app.post('/', function(req, res) {
       query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact WHERE Id = '" + context.environment.record.Id + "' LIMIT 1",
 
       contactRequest = {
-          url: instanceUrl + '/services/data/v29.0/query?q=' + query,
+          url: instanceUrl + '/services/data/v50.0/query?q=' + query,
           headers: {
               'Authorization': 'OAuth ' + oauthToken
           }
       };
-
+console.log('token',oauthToken);
+console.log(JSON.stringify(context));
   request(contactRequest, function(err, response, body) {
     var qr = qrcode.qrcode(4, 'L'),
     contact = JSON.parse(body).records[0],
