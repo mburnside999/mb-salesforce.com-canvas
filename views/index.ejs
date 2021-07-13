@@ -91,14 +91,8 @@ Sfdc.canvas.client.ajax(url,
         console.log('event',JSON.stringify(event));
         var post = {};
     
-        post.feedItemType = "TextPost";
-        post.body = {value:"xx",insertType:"cursor"};
-      
-        //post.urlName = 'salesforce';
-    
-        Sfdc.canvas.client.publish(c,
-          { name: "publisher.setPayload", payload: post });
-      }
+        
+        
     });
 
 
