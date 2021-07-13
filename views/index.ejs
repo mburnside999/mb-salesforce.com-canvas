@@ -60,8 +60,20 @@
 <div class="canvas-app">
     <img src="nodejs.png"/>
     <script>
-        var c = <%= context %>;
-        alert(c.user.firstName);
+        var url = context.links.chatterFeedsUrl+"/news/"+sr.context.user.userId+"/feed-items";
+        var body = {body : {messageSegments : [{type: "Text", text: "Some Chatter Post"}]}};
+ 
+        Sfdc.canvas.client.ajax(url,
+    {client : client,
+        method: 'POST',
+        contentType: "application/json",
+        data: JSON.stringify(body),
+        success : function(data) {
+        if (201 === data.status) {
+             alert("Success");
+             }
+        }
+    });
         
     </script>
     <p>Hello, <%= context.user.firstName %>. This is a web app written in Node.js embedded in your Salesforce page (It could also be written in any other language).</p>
