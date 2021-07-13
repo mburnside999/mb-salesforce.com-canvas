@@ -70,7 +70,7 @@ console.log(strClient);
 console.log(JSON.stringify(c));
 
 var url = '<%=context.links.chatterFeedsUrl%>'+'/news/'+'<%=context.user.userId%>'+'/feed-items';
-var body = {body : {messageSegments : [{type: "Text", text: "Some Chatter Post"}]}};
+var body = {body : {messageSegments : [{type: "Text", text: "A Chatter Post from the Canvas App"}]}};
  
 Sfdc.canvas.client.ajax(url,
     {client : c,
@@ -81,6 +81,16 @@ Sfdc.canvas.client.ajax(url,
         if (201 === data.status) {
              alert("Success");
              }
+        }
+    });
+
+    Sfdc.canvas.publisher.subscribe({
+        name: "publisher.showPanel",
+        onData: function(e) {
+            Sfdc.canvas.publisher.publish({
+                name: "publisher.setValidForSubmit",
+                payload: "true"
+            });
         }
     });
 
