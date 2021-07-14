@@ -29,7 +29,7 @@ app.post('/', function(req, res) {
       context = signedRequest.context,
       client=signedRequest.client,
       oauthToken = signedRequest.client.oauthToken,
-      instanceUrl = signedRequest.client.instanceUrl,
+      instanceUrl = signedRequest.client.instanceUrl;
       
 
 var hasContactContext={};
