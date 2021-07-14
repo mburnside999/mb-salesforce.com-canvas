@@ -29,13 +29,14 @@ app.post('/', function(req, res) {
       context = signedRequest.context,
       client=signedRequest.client,
       oauthToken = signedRequest.client.oauthToken,
-      instanceUrl = signedRequest.client.instanceUrl,
+      instanceUrl = signedRequest.client.instanceUrl;
 
       if (context.environment.record.Id) {
-      query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact WHERE Id = '" + context.environment.record.Id + "'",
+      query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact WHERE Id = '" + context.environment.record.Id + "'";
       } else {
-      query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact  LIMIT 1",
+      query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact  LIMIT 1";
       }
+      
       contactRequest = {
           url: instanceUrl + '/services/data/v50.0/query?q=' + query,
           headers: {
