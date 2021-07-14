@@ -193,7 +193,7 @@ Sfdc.canvas.client.ajax(url,
     <p>The application is very aware of its environment (i.e. that its been enbedded in Salesforce).</p> 
         <br/>
         
-        <p>For example, here are a few things it already knows...</p>
+        <p>For example, here are a few things it already knows...(they were passed to the app using a signed POST on invocation)</p>
         <br/>
     <table>
         <thead>
@@ -216,7 +216,10 @@ Sfdc.canvas.client.ajax(url,
     </table>
 
     <br/>
-    <p>It can also access more data in Salesforce using the REST APIs. With context and APIs, Canvas makes it easy to integrate applications written in any language inside your Salesforce pages. For example, the QR Code below is generated in Node.js. Scan it to create a contact on your mobile phone:</p>
+    <p>It can also access more data in Salesforce using the REST APIs. With context and APIs, Canvas makes it easy to integrate applications written in any language inside your Salesforce pages. </p>
+    <br/>
+    <p>For example, the QR Code below is generated in Node.js from data retrieved using Salesforce REST. </p>
+    <br/><p>Scan it to create a contact on your mobile phone:</p>
     <%- imgTag %>
 </div>
 </body>
