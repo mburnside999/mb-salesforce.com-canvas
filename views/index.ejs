@@ -82,9 +82,14 @@ console.log(JSON.stringify(c));
 var strContact='<%- JSON.stringify(contact) %>';
 var con=JSON.parse(strContact);
 
-Sfdc.canvas(function() { 
-    Sfdc.canvas.client.autogrow(c, true, 100);
-});
+//Sfdc.canvas(function() { 
+    //Sfdc.canvas.client.autogrow(c, true, 100);
+//}); 
+
+Sfdc.canvas(function() {
+    Sfdc.canvas.client.resize(c, {height : "1000px", width : "900px"});
+    });
+
 console.log('hasContactContect==>','<%= hasContactContext.value %>');
 console.log("FirstName==>",con.FirstName);
 
