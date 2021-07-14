@@ -60,6 +60,10 @@
 <div class="canvas-app">
     <img src="nodejs.png"/>
     <script>
+
+
+
+
         console.log('<%- context %>','=========');
         var test = '<%- JSON.stringify(context) %>'; // test is now a valid js object
         var url = '<%- context.links.chatterFeedsUrl%>'+'/news/'+'<%-context.user.userId%>'+'/feed-items';
@@ -68,6 +72,11 @@ var strClient='<%- JSON.stringify(client) %>';
 var c=JSON.parse(strClient);
 console.log(strClient);
 console.log(JSON.stringify(c));
+
+Sfdc.canvas(function() { 
+    Sfdc.canvas.client.autogrow(c, true, 100);
+});
+
 
 var url = '<%=context.links.chatterFeedsUrl%>'+'/news/'+'<%=context.user.userId%>'+'/feed-items';
 var body = {body : {messageSegments : [{type: "Text", text: "A Chatter Post from the Canvas App"}]}};
@@ -119,7 +128,7 @@ Sfdc.canvas.client.ajax(url,
        //     }
        // }); 
     </script>
-    <p>Hello, <%= context.user.firstName %>. This is a web app written in Node.js embedded in your Salesforce page (It could also be written in any other language).</p>
+    <p>Hello, <%= context.user.firstName %>. This is a web app written in Node.js embedded in your Salesforce page.</p>
     <p>It is aware of its environment. For example, here are a few things it knows:</p>
     <table>
         <thead>
@@ -129,8 +138,8 @@ Sfdc.canvas.client.ajax(url,
                 
             </tr>
         </thead>
-        <tr><td>User:</td><td><%= context.user.fullName %></td></tr>
-        <tr><td>Chatter Users Url:</td><td><%= context.links.chatterUsersUrl%></td></tr>
+        <tr><td>Your full name:</td><td><%= context.user.fullName %></td></tr>
+        <tr><td>Chatter Url:</td><td><%= context.links.chatterUsersUrl%></td></tr>
         
     </table>
     <p>It can also access more data in Salesforce using the REST APIs. With context and APIs, Canvas makes it easy to integrate applications written in any language inside your Salesforce pages.</p>
