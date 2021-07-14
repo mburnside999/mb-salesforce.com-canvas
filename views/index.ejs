@@ -80,7 +80,7 @@ var con=JSON.parse(strContact);
 Sfdc.canvas(function() { 
     Sfdc.canvas.client.autogrow(c, true, 100);
 });
-
+console.log('hasContactContect==>','<%= hasContactContext.value %>');
 console.log("FirstName==>",con.FirstName);
 
 var url = '<%=context.links.chatterFeedsUrl%>'+'/news/'+'<%=context.user.userId%>'+'/feed-items';
