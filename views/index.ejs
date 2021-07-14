@@ -68,15 +68,20 @@
         var test = '<%- JSON.stringify(context) %>'; // test is now a valid js object
         var url = '<%- context.links.chatterFeedsUrl%>'+'/news/'+'<%-context.user.userId%>'+'/feed-items';
         var body = {body : {messageSegments : [{type: "Text", text: "Some Chatter Post"}]}};
+
 var strClient='<%- JSON.stringify(client) %>';
 var c=JSON.parse(strClient);
 console.log(strClient);
 console.log(JSON.stringify(c));
 
+var strContact='<%- JSON.stringify(contact) %>';
+var con=JSON.parse(strContact);
+
 Sfdc.canvas(function() { 
     Sfdc.canvas.client.autogrow(c, true, 100);
 });
 
+console.log("FirstName==>",con.FirstName);
 
 var url = '<%=context.links.chatterFeedsUrl%>'+'/news/'+'<%=context.user.userId%>'+'/feed-items';
 var body = {body : {messageSegments : [{type: "Text", text: "A Chatter Post from the Canvas App"}]}};
@@ -142,8 +147,7 @@ Sfdc.canvas.client.ajax(url,
         <tr><td>Chatter Url:</td><td><%= context.links.chatterUsersUrl%></td></tr>
         
     </table>
-    <p>It can also access more data in Salesforce using the REST APIs. With context and APIs, Canvas makes it easy to integrate applications written in any language inside your Salesforce pages.</p>
-    <p>For example, the QR Code below is generated in Node.js. Scan it to create a contact on your mobile phone:</p>
+    <p>It can also access more data in Salesforce using the REST APIs. With context and APIs, Canvas makes it easy to integrate applications written in any language inside your Salesforce pages. For example, the QR Code below is generated in Node.js. Scan it to create a contact on your mobile phone:</p>
     <%- imgTag %>
 </div>
 
