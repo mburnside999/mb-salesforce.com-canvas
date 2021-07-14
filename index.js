@@ -33,7 +33,14 @@ app.post('/', function(req, res) {
       
 
 var hasContactContext={};
-var recId=context.environment.record.Id;
+var recId;
+
+if (typeof context.environment.record.Id == 'undefined') {
+  recId='UNDEFINED';
+} else {
+  recId=context.environment.record.Id;
+}
+
 console.log('recid==>',recId);
       if (recId.substring(0,3)=='003') {
       
