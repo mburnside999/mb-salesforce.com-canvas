@@ -133,35 +133,15 @@ Sfdc.canvas.client.ajax(url,
        //     }
        // }); 
     </script>
-    <p>Hello, <%= context.user.firstName %>. This is a web app written in Node.js embedded in your Salesforce page.</p>
-    <p>It is aware of its environment. For example, here are a few things it knows:</p>
-    <table>
-        <thead>
-            <tr>
-                <th>Item </th>
-                <th>Value </th>
-                
-            </tr>
-        </thead>
-        <tr><td>Your Name</td><td><%= context.user.fullName %></td></tr>
-        <tr><td>Your UserName</td><td><%= context.user.userName %></td></tr>
-        <tr><td>Page Context </td><td>Contact: <%= contact.FirstName%> <%=contact.LastName%></td></tr>
-        <tr><td>Authentication </td><td><%= context.application.authType %></td></tr>
-        <tr><td>Org Name </td><td><%= context.organization.name %></td></tr>
-        <tr><td>Version </td><td><%= context.environment.version.season %>, API=<%= context.environment.version.api %></td></tr>
-        <tr><td>Photo </td><td><img src="<%= context.user.profilePhotoUrl %>"</img></td></tr>
-
-
-
-    </table>
-    <p>It can also access more data in Salesforce using the REST APIs. With context and APIs, Canvas makes it easy to integrate applications written in any language inside your Salesforce pages. For example, the QR Code below is generated in Node.js. Scan it to create a contact on your mobile phone:</p>
-    <%- imgTag %>
+    
 </div>
 
 <div>
     <h1>Product Manangement Node Js Heroku Integration </h1>
     
-   
+    <p>Hello, <%= context.user.firstName %>. </p>
+    <p>So here's an Canvas example... the Product Master application below is hosted externally.</p>
+    <p>It's a web app written in Node.js, but using Canvas is now embedded in your Salesforce page.</p>
     <table>
         <thead>
             <tr>
@@ -202,5 +182,28 @@ Sfdc.canvas.client.ajax(url,
 
         </tbody>
     </table>
+    <p>Now it's more than just putting the application in a frame. </p>
+    <p>The application is very aware of its environment (i.e. that its been enbedded in Salesforce). For example, here are a few things it knows...</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Item </th>
+                <th>Value </th>
+                
+            </tr>
+        </thead>
+        <tr><td>Your Name</td><td><%= context.user.fullName %></td></tr>
+        <tr><td>Your UserName</td><td><%= context.user.userName %></td></tr>
+        <tr><td>Page Context </td><td>Contact: <%= contact.FirstName%> <%=contact.LastName%></td></tr>
+        <tr><td>Authentication </td><td><%= context.application.authType %></td></tr>
+        <tr><td>Org Name </td><td><%= context.organization.name %></td></tr>
+        <tr><td>Version </td><td><%= context.environment.version.season %>, API=<%= context.environment.version.api %></td></tr>
+        <tr><td>Photo </td><td><img src="<%= context.user.profilePhotoUrl %>"</img></td></tr>
+
+
+
+    </table>
+    <p>It can also access more data in Salesforce using the REST APIs. With context and APIs, Canvas makes it easy to integrate applications written in any language inside your Salesforce pages. For example, the QR Code below is generated in Node.js. Scan it to create a contact on your mobile phone:</p>
+    <%- imgTag %>
 </div>
 </body>
