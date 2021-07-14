@@ -29,7 +29,14 @@ app.post('/', function(req, res) {
       context = signedRequest.context,
       client=signedRequest.client,
       oauthToken = signedRequest.client.oauthToken,
-      instanceUrl = signedRequest.client.instanceUrl;
+      instanceUrl = signedRequest.client.instanceUrl,
+      contactRequest = {
+        url: instanceUrl + '/services/data/v50.0/query?q=' + query,
+        headers: {
+            'Authorization': 'OAuth ' + oauthToken
+        }
+    };
+    
 var hasContactContext={};
       if (context.environment.record.Id) {
       query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact WHERE Id = '" + context.environment.record.Id + "'";
@@ -39,12 +46,7 @@ var hasContactContext={};
       hasContactContext.value=false;
     }
 
-      contactRequest = {
-          url: instanceUrl + '/services/data/v50.0/query?q=' + query,
-          headers: {
-              'Authorization': 'OAuth ' + oauthToken
-          }
-      };
+
 console.log('token',oauthToken);
 console.log('client',client);
 console.log(JSON.stringify(context));
