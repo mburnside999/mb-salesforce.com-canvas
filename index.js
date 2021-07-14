@@ -31,9 +31,11 @@ app.post('/', function(req, res) {
       oauthToken = signedRequest.client.oauthToken,
       instanceUrl = signedRequest.client.instanceUrl,
 
-      //query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact WHERE Id = '" + context.environment.record.Id + "'",
+      if (context.environment.record.Id) {
+      query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact WHERE Id = '" + context.environment.record.Id + "'",
+      } else {
       query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact  LIMIT 1",
-
+      }
       contactRequest = {
           url: instanceUrl + '/services/data/v50.0/query?q=' + query,
           headers: {
@@ -50,7 +52,7 @@ console.log(JSON.stringify(context));
 qr.addData(text);
 qr.make()
       var imgTag = qr.createImgTag(4);
-      res.render('index', {client: client, signedRequest: signedRequest,context: context, imgTag: imgTag});
+      res.render('index', {client: client, signedRequest: signedRequest,context: context, imgTag: imgTag,contact:contact});
   });
 
 });
