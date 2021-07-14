@@ -90,13 +90,21 @@ console.log("contentWidth; " + sizes.widths.contentWidth);
 console.log("pageWidth; " + sizes.widths.pageWidth);
 console.log("scrollLeft; " + sizes.widths.scrollLeft);
 
-Sfdc.canvas(function() { 
-    Sfdc.canvas.client.autogrow(c, true, 100);
-}); 
+//Sfdc.canvas(function() { 
+   // Sfdc.canvas.client.autogrow(c, true, 100);
+//}); 
 
 Sfdc.canvas(function() {
     Sfdc.canvas.client.resize(c, {height : "1000px", width : "900px"});
     });
+
+
+    console.log("contentHeight; " + sizes.heights.contentHeight);
+console.log("pageHeight; " + sizes.heights.pageHeight);
+console.log("scrollTop; " + sizes.heights.scrollTop);
+console.log("contentWidth; " + sizes.widths.contentWidth);
+console.log("pageWidth; " + sizes.widths.pageWidth);
+console.log("scrollLeft; " + sizes.widths.scrollLeft);
 
 console.log('hasContactContect==>','<%= hasContactContext.value %>');
 console.log("FirstName==>",con.FirstName);
