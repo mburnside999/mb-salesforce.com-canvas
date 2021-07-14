@@ -33,13 +33,14 @@ app.post('/', function(req, res) {
       
 
 var hasContactContext={};
-console.log(context.environment.record.Id);
-      if (context.environment.record.Id != null) {
-      console.log('if');
-        query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact WHERE Id = '" + context.environment.record.Id + "'";
+var recId=context.environment.record.Id;
+console.log('recid==>',recId);
+      if (recId.substring(0,3)=='003') {
+      
+      query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact WHERE Id = '" + context.environment.record.Id + "'";
       hasContactContext.value='true';
     } else {
-      console.log('else');
+      
       query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact  LIMIT 1";
       hasContactContext.value='false';
     }
