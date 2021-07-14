@@ -212,11 +212,13 @@ Sfdc.canvas.client.ajax(url,
         </thead>
         <tr><td>Your Name</td><td><%= context.user.fullName %></td></tr>
         <tr><td>Your UserName</td><td><%= context.user.userName %></td></tr>
-        <tr><td>Page Context </td><td>Contact: <%= contact.FirstName%> <%=contact.LastName%></td></tr>
+        <tr><td>Context - SFDC RecordId </td><td>RecordId: <%= contact.Id%></td></tr>
+        <tr><td>Context - Object Type</td><td>Contact</td></tr>
+        <tr><td>Record Details (via API) </td><td>Type=Contact: <%= contact.FirstName%> <%=contact.LastName%></td></tr>
         <tr><td>Authentication </td><td><%= context.application.authType %></td></tr>
-        <tr><td>Org Name </td><td><%= context.organization.name %></td></tr>
-        <tr><td>Version </td><td><%= context.environment.version.season %>, API=<%= context.environment.version.api %></td></tr>
-        <tr><td>Photo </td><td><img src="<%= context.user.profilePhotoUrl %>"</img></td></tr>
+        <tr><td>SFDC Org Name </td><td><%= context.organization.name %></td></tr>
+        <tr><td>SFDC Version </td><td><%= context.environment.version.season %>, API=<%= context.environment.version.api %></td></tr>
+        <tr><td>User Photo </td><td><img src="<%= context.user.profilePhotoUrl %>"</img></td></tr>
 
 
 
