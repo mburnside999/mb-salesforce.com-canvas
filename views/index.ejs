@@ -233,7 +233,7 @@ Sfdc.canvas.client.ajax(url,
         <tr><td>UserName</td><td><%= context.user.userName %></td></tr>
         <tr><td>Context - Record Type</td><td><%= context.environment.record.attributes.type%></td></tr>
         <tr><td>Context - RecordId</td><td><%= context.environment.record.Id%></td></tr>
-        <tr><td>Contact Details (via SOQL/API) </td><td><%= contact.FirstName%> <%=contact.LastName%></td></tr>
+        <tr><td>Contact Details (via REST) </td><td><%= contact.FirstName%> <%=contact.LastName%></td></tr>
         <tr><td>Authentication </td><td><%= context.application.authType %></td></tr>
         <tr><td>Canvas Dimensions</td><td> <%= context.environment.dimensions.clientHeight%> x <%= context.environment.dimensions.clientWidth%></td></tr>
         <tr><td>SFDC Org Name </td><td><%= context.organization.name %></td></tr>
