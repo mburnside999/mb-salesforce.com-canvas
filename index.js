@@ -18,9 +18,9 @@ app.set('view engine', 'ejs');
 //var views = path.join(__dirname, 'public/views');
  var   consumerSecret = process.env.CONSUMER_SECRET;
 
-// app.get('/', function (req, res) {
-//   res.sendFile(path.join(views, 'index.html'));
-// });
+app.get('/', function (req, res) {
+   res.render('welcome',{}); 
+});
 
 app.post('/', function(req, res) {
 
