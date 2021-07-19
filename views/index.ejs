@@ -125,6 +125,9 @@ Sfdc.canvas.client.ajax(url,
     var updateUrl = "<%=context.links.sobjectUrl%>"+"Contact/" + contactId + "?_HttpMethod=PATCH";
     var contactInfo = {"Canvas_Log__c" : "Hello"};
     
+    console.log('updating');
+    console.log(contactId,updateUrl,JSON.stringify(contactInfo));
+    
     Sfdc.canvas.client.ajax(updateUrl,
     {client : c,
         method: 'POST',
@@ -132,7 +135,7 @@ Sfdc.canvas.client.ajax(url,
         data: JSON.stringify(contactInfo),
         success : function(data) {
         if (201 === data.status) {
-             console.log("Success");
+             console.log("========> Success");
              }
         }
     });
