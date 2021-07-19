@@ -121,25 +121,7 @@ Sfdc.canvas.client.ajax(url,
         }
     });
 
-    var contactId ="<%=context.environment.record.Id%>";
-    var updateUrl = "<%=context.links.sobjectUrl%>"+"Contact/" + contactId + "?_HttpMethod=PATCH";
-    var contactInfo = {"Canvas_Log__c" : "Hello"};
     
-    console.log('updating');
-    console.log('contactId=>',contactId,'updateUrl=>',updateUrl,'payload=>',JSON.stringify(contactInfo));
-    
-    Sfdc.canvas.client.ajax(updateUrl,
-    {client : c,
-        method: 'POST',
-        contentType: "application/json",
-        data: JSON.stringify(contactInfo),
-        success : function(data) {
-        if (201 === data.status) {
-             console.log("========> Success");
-             }
-        }
-    });
-
 
     Sfdc.canvas.client.subscribe(c,
     {
@@ -175,6 +157,34 @@ Sfdc.canvas.client.ajax(url,
        //          }
        //     }
        // }); 
+
+
+       function updateContact() {
+
+    var contactId ="<%=context.environment.record.Id%>";
+    var updateUrl = "<%=context.links.sobjectUrl%>"+"Contact/" + contactId + "?_HttpMethod=PATCH";
+    var contactInfo = {"Canvas_Log__c" : "Hello"};
+    
+    console.log('updating');
+    console.log('contactId=>',contactId,'updateUrl=>',updateUrl,'payload=>',JSON.stringify(contactInfo));
+    
+    Sfdc.canvas.client.ajax(updateUrl,
+    {client : c,
+        method: 'POST',
+        contentType: "application/json",
+        data: JSON.stringify(contactInfo),
+        success : function(data) {
+        if (201 === data.status) {
+             console.log("========> Success");
+             alert('Updated Contact using Ajax API');
+             }
+        }
+    });
+
+
+
+      }
+
 
     </script>
     
@@ -270,5 +280,8 @@ Sfdc.canvas.client.ajax(url,
     <p>For example, the QR Code below is generated in Node.js from data retrieved using Salesforce REST. </p>
     <br/><p>Scan it to create a contact on your mobile phone:</p>
     <%- imgTag %>
+
+    <button onclick="updateContact()">Click me</button>
+
 </div>
 </body>
