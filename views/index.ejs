@@ -159,11 +159,20 @@ Sfdc.canvas.client.ajax(url,
        // }); 
 
 
-       function updateContact() {
+    function updateContact() {
+
+        var currentdate = new Date(); 
+        var datetime = "Last Sync: " + currentdate.getDate() + "/"
+                        + (currentdate.getMonth()+1)  + "/" 
+                        + currentdate.getFullYear() + " @ "  
+                        + currentdate.getHours() + ":"  
+                        + currentdate.getMinutes() + ":" 
+                        + currentdate.getSeconds();
+
 
     var contactId ="<%=context.environment.record.Id%>";
     var updateUrl = "<%=context.links.sobjectUrl%>"+"Contact/" + contactId + "?_HttpMethod=PATCH";
-    var contactInfo = {"Canvas_Log__c" : "Hello"};
+    var contactInfo = {"Canvas_Log__c" : datetime};
     
     console.log('updating');
     console.log('contactId=>',contactId,'updateUrl=>',updateUrl,'payload=>',JSON.stringify(contactInfo));
