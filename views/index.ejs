@@ -126,7 +126,7 @@ Sfdc.canvas.client.ajax(url,
     var contactInfo = {"Canvas_Log__c" : "Hello"};
     
     console.log('updating');
-    console.log('contactId=>',contactId,'updateUrl=>',updateUrl,'payload=>',SON.stringify(contactInfo));
+    console.log('contactId=>',contactId,'updateUrl=>',updateUrl,'payload=>',JSON.stringify(contactInfo));
     
     Sfdc.canvas.client.ajax(updateUrl,
     {client : c,
