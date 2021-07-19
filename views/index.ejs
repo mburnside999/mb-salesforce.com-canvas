@@ -121,12 +121,12 @@ Sfdc.canvas.client.ajax(url,
         }
     });
 
-    var contactId ="<%=context.environment.parameters.Id%>";
+    var contactId ="<%=context.environment.record.Id%>";
     var updateUrl = "<%=context.links.sobjectUrl%>"+"Contact/" + contactId + "?_HttpMethod=PATCH";
     var contactInfo = {"Canvas_Log__c" : "Hello"};
     
     console.log('updating');
-    console.log(contactId,updateUrl,JSON.stringify(contactInfo));
+    console.log('contactId=>',contactId,'updateUrl=>',updateUrl,'payload=>',SON.stringify(contactInfo));
     
     Sfdc.canvas.client.ajax(updateUrl,
     {client : c,
