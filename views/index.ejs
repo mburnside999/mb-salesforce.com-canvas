@@ -162,14 +162,14 @@ Sfdc.canvas.client.ajax(url,
 
 
     function updateContact() {
-
+        const zeroPad = (num, places) => String(num).padStart(places, '0');
         var currentdate = new Date(); 
         var datetime = "Canvas App - Product Master Last Sync: " + currentdate.getDate() + "/"
                         + (currentdate.getMonth()+1)  + "/" 
                         + currentdate.getFullYear() + " @ "  
-                        + currentdate.getHours() + ":"  
-                        + currentdate.getMinutes() + ":" 
-                        + currentdate.getSeconds();
+                        + zeropad(currentdate.getHours(),2) + ":"  
+                        + zeropad(currentdate.getMinutes(),2) + ":" 
+                        + zeropad(currentdate.getSeconds(),2);
 
 
     var contactId ="<%=context.environment.record.Id%>";
