@@ -121,6 +121,23 @@ Sfdc.canvas.client.ajax(url,
         }
     });
 
+    var contactId ="<%=sr.context.environment.parameters.Id%>";
+    var updateUrl = "<%=context.links.sobjectUrl%>"+"Contact/" + contactId + "?_HttpMethod=PATCH";
+    var contactInfo = {"Canvas_Log__c" : "Hello"};
+    
+    Sfdc.canvas.client.ajax(updateUrl,
+    {client : c,
+        method: 'POST',
+        contentType: "application/json",
+        data: JSON.stringify(contactInfo),
+        success : function(data) {
+        if (201 === data.status) {
+             console.log("Success");
+             }
+        }
+    });
+
+
     Sfdc.canvas.client.subscribe(c,
     {
       name: "publisher.getPayload", onData: function (event)
