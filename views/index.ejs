@@ -172,7 +172,7 @@ Sfdc.canvas.client.ajax(url,
 
     var contactId ="<%=context.environment.record.Id%>";
     var updateUrl = "<%=context.links.sobjectUrl%>"+"Contact/" + contactId + "?_HttpMethod=PATCH";
-    var contactInfo = {"Canvas_Log__c" : "<h3>"+datetime"</h3>"};
+    var contactInfo = {"Canvas_Log__c" : "<h3>"+datetime+"</h3>"};
     
     console.log('updating');
     console.log('contactId=>',contactId,'updateUrl=>',updateUrl,'payload=>',JSON.stringify(contactInfo));
