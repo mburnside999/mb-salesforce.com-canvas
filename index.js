@@ -15,6 +15,7 @@ app.set("view engine", "ejs");
 
 //var views = path.join(__dirname, 'public/views');
 var consumerSecret = process.env.CONSUMER_SECRET;
+console.log(consumerSecret);
 
 app.get("/", function (req, res) {
   res.render("welcome", {});
