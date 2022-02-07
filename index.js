@@ -1,82 +1,94 @@
-const { SlowBuffer } = require('buffer');
-var express  = require('express'),
-  bodyParser = require('body-parser'),
-  path       = require('path'),
-  CryptoJS   = require("crypto-js");
-  request = require('request'),
-  qrcode = require('qrcode-npm'),
-  decode = require('salesforce-signed-request'),
-
-
-app= express(),
-app.use(express.static(__dirname + '/public'));
+const { SlowBuffer } = require("buffer");
+var express = require("express"),
+  bodyParser = require("body-parser"),
+  path = require("path"),
+  CryptoJS = require("crypto-js");
+(request = require("request")),
+  (qrcode = require("qrcode-npm")),
+  (decode = require("salesforce-signed-request")),
+  (app = express()),
+  app.use(express.static(__dirname + "/public"));
 
 app.use(bodyParser.json()); // create application/json parser
 app.use(bodyParser.urlencoded({ entended: true })); //create application/x-www-urlencoded parser
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 //var views = path.join(__dirname, 'public/views');
- var   consumerSecret = process.env.CONSUMER_SECRET;
+var consumerSecret = process.env.CONSUMER_SECRET;
 
-app.get('/', function (req, res) {
-   res.render('welcome',{}); 
+app.get("/", function (req, res) {
+  res.render("welcome", {});
 });
 
-app.post('/', function(req, res) {
-
+app.post("/", function (req, res) {
   // You could save this information in the user session if needed
   var signedRequest = decode(req.body.signed_request, consumerSecret),
-      context = signedRequest.context,
-      client=signedRequest.client,
-      oauthToken = signedRequest.client.oauthToken,
-      instanceUrl = signedRequest.client.instanceUrl;
-      
+    context = signedRequest.context,
+    client = signedRequest.client,
+    oauthToken = signedRequest.client.oauthToken,
+    instanceUrl = signedRequest.client.instanceUrl;
 
-var hasContactContext={};
-var recId;
+  var hasContactContext = {};
+  var recId;
 
-if (typeof context.environment.record.Id == 'undefined') {
-  recId='UNDEFINED';
-} else {
-  recId=context.environment.record.Id;
-}
+  if (typeof context.environment.record.Id == "undefined") {
+    recId = "UNDEFINED";
+  } else {
+    recId = context.environment.record.Id;
+  }
 
-console.log('recid==>',recId);
-      if (recId.substring(0,3)=='003') {
-      
-      query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact WHERE Id = '" + context.environment.record.Id + "'";
-      hasContactContext.value='true';
-    } else {
-      
-      query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact  LIMIT 1";
-      hasContactContext.value='false';
-    }
+  console.log("recid==>", recId);
+  if (recId.substring(0, 3) == "003") {
+    query =
+      "SELECT Id, FirstName, LastName, Phone, Email FROM Contact WHERE Id = '" +
+      context.environment.record.Id +
+      "'";
+    hasContactContext.value = "true";
+  } else {
+    query =
+      "SELECT Id, FirstName, LastName, Phone, Email FROM Contact  LIMIT 1";
+    hasContactContext.value = "false";
+  }
 
-    contactRequest = {
-      url: instanceUrl + '/services/data/v50.0/query?q=' + query,
-      headers: {
-          'Authorization': 'OAuth ' + oauthToken
-      }
+  contactRequest = {
+    url: instanceUrl + "/services/data/v50.0/query?q=" + query,
+    headers: {
+      Authorization: "OAuth " + oauthToken,
+    },
   };
 
-console.log('token',oauthToken);
-console.log('client',client);
-console.log(JSON.stringify(context));
-  request(contactRequest, function(err, response, body) {
-    var qr = qrcode.qrcode(4, 'L'),
-    contact = JSON.parse(body).records[0],
-    text = 'MECARD:N:' + contact.LastName + ',' + contact.FirstName + ';TEL:' + contact.Phone + ';EMAIL:' + contact.Email + ';;';
-qr.addData(text);
-qr.make()
-      var imgTag = qr.createImgTag(4);
-      res.render('index', {client: client, signedRequest: signedRequest,context: context, imgTag: imgTag,contact:contact,hasContactContext:hasContactContext});
+  console.log("token", oauthToken);
+  console.log("client", client);
+  console.log(JSON.stringify(context));
+  request(contactRequest, function (err, response, body) {
+    var qr = qrcode.qrcode(4, "L"),
+      contact = JSON.parse(body).records[0],
+      text =
+        "MECARD:N:" +
+        contact.LastName +
+        "," +
+        contact.FirstName +
+        ";TEL:" +
+        contact.Phone +
+        ";EMAIL:" +
+        contact.Email +
+        ";;";
+    qr.addData(text);
+    qr.make();
+    var imgTag = qr.createImgTag(4);
+    res.render("index", {
+      client: client,
+      signedRequest: signedRequest,
+      context: context,
+      imgTag: imgTag,
+      contact: contact,
+      hasContactContext: hasContactContext,
+    });
   });
-
 });
 
-
 // app.post('/', function (req, res) {
-//   // Desk secret key	
+//   // Desk secret key
 //   var shared = consumerSecret;
 //   // Grab signed request
 //   var signed_req = req.body.signed_request;
@@ -93,7 +105,7 @@ qr.make()
 //   console.log('username',obj.context.user.userName);
 
 //   // Sign hash with secret
-//   var hash = CryptoJS.HmacSHA256(context, shared); 
+//   var hash = CryptoJS.HmacSHA256(context, shared);
 //   // encrypt signed hash to base64
 //   var b64Hash = CryptoJS.enc.Base64.stringify(hash);
 //   if (hashedContext === b64Hash) {
@@ -101,9 +113,9 @@ qr.make()
 //     res.sendFile(path.join(views, 'index.html'));
 //   } else {
 //     res.send("authentication failed");
-//   };  		
+//   };
 // })
 
 var port = process.env.PORT || 9000;
 app.listen(port);
-console.log('Listening on port ' + port);
+console.log("Listening on port " + port);
