@@ -22,6 +22,7 @@ app.get("/", function (req, res) {
 
 app.post("/", function (req, res) {
   console.log(JSON.stringify(req.body));
+  console.log(JSON.stringify(decode(req.body.signed_request, consumerSecret)));
   // You could save this information in the user session if needed
   var signedRequest = decode(req.body.signed_request, consumerSecret),
     context = signedRequest.context,
