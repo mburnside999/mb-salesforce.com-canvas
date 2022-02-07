@@ -10,7 +10,7 @@ var express = require("express"),
   app.use(express.static(__dirname + "/public"));
 
 app.use(bodyParser.json()); // create application/json parser
-app.use(bodyParser.urlencoded({ entended: true })); //create application/x-www-urlencoded parser
+app.use(bodyParser.urlencoded({ extended: true })); //create application/x-www-urlencoded parser
 app.set("view engine", "ejs");
 
 //var views = path.join(__dirname, 'public/views');
