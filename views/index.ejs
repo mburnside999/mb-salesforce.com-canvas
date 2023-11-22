@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<script type="text/javascript" src="https://mbdxdodemo.my.salesheroku openforce.com/canvas/sdk/js/57.0/canvas-all.js"></script>
+<script type="text/javascript" src="https://mbdxdodemo.my.salesheroku openforce.com/canvas/sdk/js/51.0/canvas-all.js"></script>
 <head>
+    <script type="text/javascript" src="https://mbdxdodemo.my.salesheroku openforce.com/canvas/sdk/js/51.0/canvas-all.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css" />
 
     <meta charset="utf-8">
@@ -98,7 +100,7 @@ Sfdc.canvas(function() {
 
 
 
-    console.log("contentHeight; " + sizes.heights.contentHeight);
+console.log("contentHeight; " + sizes.heights.contentHeight);
 console.log("pageHeight; " + sizes.heights.pageHeight);
 console.log("scrollTop; " + sizes.heights.scrollTop);
 console.log("contentWidth; " + sizes.widths.contentWidth);
@@ -174,7 +176,7 @@ Sfdc.canvas.client.ajax(url,
 
  console.log('===',zeroPad(mins,2),zeroPad(secs,2));
 
-        var datetime = "Canvas App - Product Master Last Sync: " + currentdate.getDate() + "/"
+        var datetime = "Canvas App - Last Sync: " + currentdate.getDate() + "/"
                         + (currentdate.getMonth()+1)  + "/" 
                         + currentdate.getFullYear() + " @ "  
                         + zeroPad(hrs,2) + ":"  
