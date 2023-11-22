@@ -230,32 +230,42 @@ Sfdc.canvas.client.ajax(url,
                 <th>Discount </th>
                 <th>Product Description </th>
                 <th>Discount Approval </th>
+                <th>Product Image </th>
+
+
             </tr>
         </thead>
         <tbody>
             <tr>
               
-                <td>ACT-100</td>
-                <td>$279.00</td>
-                <td>$29.00</td>
-                <td>Affordable and easy to use.</td>
+                <td>Volt X1</td>
+                <td>$1200.00</td>
+                <td>$120.00</td>
+                <td>Affordable beginner level commuter. 10% discount available w/approval.</td>
                 <td>Yes</td>
+                <td><img src="https://s3-us-west-1.amazonaws.com/sfdc-demo/ebikes/voltx1.jpg"/></td>
+
             </tr>
             <tr>
                 
-                <td>ACT-200</td>
-                <td>$379.00</td>
-                <td>$29.00</td>
-                <td>Mid-range fully featured.</td>
+                <td>Electra X1</td>
+                <td>$4000.00</td>
+                <td>$400.00</td>
+                <td>Enthusiast level Mountain Bike. Pre-approved 10% discount.</td>
                 <td>No</td>
+                <td><img src="https://s3-us-west-1.amazonaws.com/sfdc-demo/ebikes/electrax1.jpg"/></td>
+
+
+
             </tr>
             <tr>
                 
-                <td>ACT-X300</td>
-                <td>$479.00</td>
-                <td>$10.00</td>
-                <td>Luxury option, includes 24/7 support.</td>
+                <td>Dynamo X1</td>
+                <td>$7000.00</td>
+                <td>$70.00</td>
+                <td>Racer level Mountain Bike. Pre-approved 10% discount..</td>
                 <td>No</td>
+                <td><img src="https://s3-us-west-1.amazonaws.com/sfdc-demo/ebikes/dynamox1.jpg"/></td>
             </tr>
 
 
@@ -263,9 +273,10 @@ Sfdc.canvas.client.ajax(url,
         </tbody>
     </table>
     <br/>
-    <p>Your app has secure access to the Salesforce REST API. Clicking the box below will update the current Contact record. </p>
+    <p>Your app has secure access to the Salesforce REST API. Clicking the box below will update the current in-context Contact record. </p>
     <br/>
-    <input type="checkbox" onclick="updateContact()"  id="upd"/> Update this Contact Record and Tell Salesforce
+    <input type="checkbox" onclick="updateContact()"  id="upd"/> Confirm you have read the updated 
+    Product rules.
 </div>
 <br/>
     <p>This is all much more than just putting the application in a frame. </p>
