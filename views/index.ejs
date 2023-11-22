@@ -111,8 +111,8 @@ console.log("scrollLeft; " + sizes.widths.scrollLeft);
 
 console.log('hasContactContect==>','<%= hasContactContext.value %>');
 console.log("FirstName==>",con.FirstName);
-
-<!-- var url = '<%=context.links.chatterFeedsUrl%>'+'/news/'+'<%=context.user.userId%>'+'/feed-items';
+ 
+var url = '<%=context.links.chatterFeedsUrl%>'+'/news/'+'<%=context.user.userId%>'+'/feed-items';
 var body = {body : {messageSegments : [{type: "Text", text: "A Chatter Post from the Canvas App"}]}};
  
 Sfdc.canvas.client.ajax(url,
@@ -125,11 +125,11 @@ Sfdc.canvas.client.ajax(url,
              console.log("Success");
              }
         }
-    }); -->
+    });  
 
     
 
-    <!-- Sfdc.canvas.client.subscribe(c,
+    Sfdc.canvas.client.subscribe(c,
     {
       name: "publisher.getPayload", onData: function (event)
       {
@@ -150,7 +150,7 @@ Sfdc.canvas.client.ajax(url,
     {name : 'publisher.setValidForSubmit', 
         payload : true});
        
-    -->
+ 
 
      //   c.ajax(url,
       //  {client : c,
